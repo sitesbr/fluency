@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluency | Inglês Conversacional Personalizado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#22C55E',
+                        accent: '#FACC15',
+                        light: '#F5F5DC',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 100%);
+        }
+        .testimonial-card {
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+        }
+        .plan-card {
+            transition: all 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.15);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(30, 58, 138, 0.1);
+        }
+        .accordion-item {
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .accordion-button:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #1E3A8A;
+            float: right;
+        }
+        .accordion-button[aria-expanded='true']:after {
+            content: '-';
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            .hero-image {
+                max-height: 300px;
+                object-fit: cover;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl mr-2">F</div>
+                <span class="text-xl font-bold text-primary">Fluency</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#metodo" class="text-gray-700 hover:text-primary transition">Método</a>
+                <a href="#planos" class="text-gray-700 hover:text-primary transition">Planos</a>
+                <a href="#depoimentos" class="text-gray-700 hover:text-primary transition">Depoimentos</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary transition">FAQ</a>
+                <a href="#contato" class="text-gray-700 hover:text-primary transition">Contato</a>
+            </nav>
+            
+            <button class="hidden md:block bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-900 transition">
+                Aula Teste
+            </button>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white w-full px-4 py-2 shadow-lg">
+            <div class="flex flex-col space-y-4 py-4">
+                <a href="#metodo" class="text-gray-700 hover:text-primary transition">Método</a>
+                <a href="#planos" class="text-gray-700 hover:text-primary transition">Planos</a>
+                <a href="#depoimentos" class="text-gray-700 hover:text-primary transition">Depoimentos</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary transition">FAQ</a>
+                <a href="#contato" class="text-gray-700 hover:text-primary transition">Contato</a>
+                <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-900 transition w-full">
+                    Aula Teste
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-32 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">Inglês que você <span class="text-secondary">realmente</span> fala</h1>
+                    <p class="text-xl text-gray-600 mb-8 font-serif">Método personalizado que adapta às suas necessidades reais de conversação em 12 semanas.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-900 transition font-medium">
+                            Agendar Aula Teste
+                        </button>
+                        <button class="border border-primary text-primary px-8 py-3 rounded-full hover:bg-blue-50 transition font-medium flex items-center justify-center">
+                            <i data-feather="play" class="mr-2"></i> Assistir apresentação
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                    <img src="http://static.photos/education/640x360/1" alt="Professora de inglês" class="rounded-2xl hero-image shadow-xl max-w-full md:max-w-md">
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-gray-200" data-aos="fade-up">
+                <p class="text-center text-gray-500 mb-6">Reconhecido por:</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+                    <img src="http://static.photos/education/200x200/1" alt="USP" class="h-12 grayscale">
+                    <img src="http://static.photos/education/200x200/2" alt="Cambridge" class="h-12 grayscale">
+                    <img src="http://static.photos/education/200x200/3" alt="Michigan" class="h-12 grayscale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método Section -->
+    <section id="metodo" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Nosso método em 3 passos</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-serif">Um processo científico para desenvolver sua fluência de forma natural e eficiente.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="search" class="text-primary" width="24" height="24"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">1. Diagnóstico Personalizado</h3>
+                    <p class="text-gray-600 font-serif">Identificamos suas dificuldades específicas e objetivos reais através de análise linguística avançada.</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="map" class="text-primary" width="24" height="24"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">2. Plano de Ação</h3>
+                    <p class="text-gray-600 font-serif">Criamos um roteiro personalizado com metas semanais e materiais selecionados para suas necessidades.</p>
+                </div>
+                
+                <div class="bg-light p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="message-square" class="text-primary" width="24" height="24"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">3. Conversação Dirigida</h3>
+                    <p class="text-gray-600 font-serif">Prática intensiva em situações reais com correção em tempo real e feedback detalhado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Transformações reais</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-serif">Alunos que superaram a barreira do inglês e alcançaram seus objetivos.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="flex overflow-x-auto pb-8 scrollbar-hide space-x-6" id="testimonial-carousel">
+                    <div class="flex-shrink-0 w-80 bg-white p-8 rounded-2xl testimonial-card" data-aos="fade-right">
+                        <div class="flex items-center mb-6">
+                            <img src="http://static.photos/people/200x200/1" alt="Ana Silva" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Ana Silva</h4>
+                                <p class="text-gray-500 text-sm">Executiva de Marketing</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 font-serif">"Em 3 meses consegui fazer minha primeira apresentação em inglês para clientes internacionais sem nervosismo. O método realmente funciona!"</p>
+                        <div class="flex items-center">
+                            <div class="flex text-accent">
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-80 bg-white p-8 rounded-2xl testimonial-card" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex items-center mb-6">
+                            <img src="http://static.photos/people/200x200/2" alt="Carlos Mendes" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Carlos Mendes</h4>
+                                <p class="text-gray-500 text-sm">Engenheiro de Software</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 font-serif">"Depois de anos tentando, finalmente consigo participar de reuniões técnicas em inglês com confiança. A abordagem prática fez toda diferença."</p>
+                        <div class="flex items-center">
+                            <div class="flex text-accent">
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-80 bg-white p-8 rounded-2xl testimonial-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex items-center mb-6">
+                            <img src="http://static.photos/people/200x200/3" alt="Juliana Costa" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Juliana Costa</h4>
+                                <p class="text-gray-500 text-sm">Estudante de Medicina</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 font-serif">"Precisei do IELTS para intercâmbio e com o plano intensivo alcancei 7.5 em 8 semanas. As aulas focadas foram essenciais para meu sucesso."</p>
+                        <div class="flex items-center">
+                            <div class="flex text-accent">
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-80 bg-white p-8 rounded-2xl testimonial-card" data-aos="fade-right" data-aos-delay="300">
+                        <div class="flex items-center mb-6">
+                            <img src="http://static.photos/people/200x200/4" alt="Roberto Almeida" class="w-16 h-16 rounded-full object-cover mr-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Roberto Almeida</h4>
+                                <p class="text-gray-500 text-sm">Empresário</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 font-serif">"Aos 50 anos, achava que não aprenderia mais. Hoje negocio diretamente com fornecedores estrangeiros. Método adaptado para minha rotina foi fundamental."</p>
+                        <div class="flex items-center">
+                            <div class="flex text-accent">
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                                <i data-feather="star" class="fill-current" width="16" height="16"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos Section -->
+    <section id="planos" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Planos Flexíveis</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-serif">Escolha o formato que melhor se adapta ao seu momento e objetivos.</p>
+            </div>
+            
+            <div class="mb-8 flex justify-center" data-aos="fade-up">
+                <div class="inline-flex rounded-full bg-gray-100 p-1">
+                    <button class="px-6 py-2 rounded-full bg-primary text-white font-medium plan-tab active" data-tab="mensal">Mensal</button>
+                    <button class="px-6 py-2 rounded-full text-gray-700 font-medium plan-tab" data-tab="intensivo">Intensivo</button>
+                    <button class="px-6 py-2 rounded-full text-gray-700 font-medium plan-tab" data-tab="pacotes">Pacotes</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Plano Mensal -->
+                <div class="plan-card bg-light p-8 rounded-2xl relative" data-aos="fade-up" data-tab-content="mensal">
+                    <h3 class="text-xl font-bold text-primary mb-4">Mensal Básico</h3>
+                    <p class="text-gray-600 mb-6 font-serif">Para quem precisa de flexibilidade e progresso constante.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">R$ 390</span>
+                        <span class="text-gray-500">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>4 aulas por mês</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Aulas de 60 minutos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Material personalizado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Suporte por WhatsApp</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-full hover:bg-blue-900 transition">
+                        Começar agora
+                    </button>
+                </div>
+                
+                <!-- Plano Mais Escolhido -->
+                <div class="plan-card bg-white border-2 border-secondary p-8 rounded-2xl relative shadow-lg" data-aos="fade-up" data-aos-delay="100" data-tab-content="mensal">
+                    <div class="absolute top-0 right-0 bg-secondary text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-xs font-bold">
+                        MAIS ESCOLHIDO
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Mensal Premium</h3>
+                    <p class="text-gray-600 mb-6 font-serif">Para resultados rápidos e acompanhamento próximo.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">R$ 690</span>
+                        <span class="text-gray-500">/mês</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>8 aulas por mês</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Aulas de 60 minutos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Material personalizado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Gravações das aulas</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Relatório mensal</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-secondary text-white py-3 rounded-full hover:bg-green-700 transition">
+                        Começar agora
+                    </button>
+                </div>
+                
+                <!-- Plano Intensivo -->
+                <div class="plan-card bg-light p-8 rounded-2xl hidden" data-tab-content="intensivo">
+                    <h3 class="text-xl font-bold text-primary mb-4">Intensivo 8 Semanas</h3>
+                    <p class="text-gray-600 mb-6 font-serif">Para quem precisa de resultados rápidos para objetivos específicos.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">R$ 2.490</span>
+                        <span class="text-gray-500">/8 semanas</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>16 aulas em 8 semanas</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Aulas de 90 minutos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Material personalizado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Suporte diário</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Simulados semanais</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Certificado de conclusão</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-full hover:bg-blue-900 transition">
+                        Começar agora
+                    </button>
+                </div>
+                
+                <!-- Plano Pacotes -->
+                <div class="plan-card bg-light p-8 rounded-2xl hidden" data-tab-content="pacotes">
+                    <h3 class="text-xl font-bold text-primary mb-4">Pacote 12 Semanas</h3>
+                    <p class="text-gray-600 mb-6 font-serif">Para transformação completa com economia e comprometimento.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">R$ 3.290</span>
+                        <span class="text-gray-500">/12 semanas</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>24 aulas em 12 semanas</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Aulas de 60 minutos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Material personalizado</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Suporte prioritário</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Avaliações quinzenais</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>Certificado de fluência</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-secondary mr-2" width="18" height="18"></i>
+                            <span>2 aulas bônus</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-full hover:bg-blue-900 transition">
+                        Começar agora
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-light rounded-2xl p-8 flex flex-col md:flex-row items-center" data-aos="fade-up">
+                <div class="w-16 h-16 rounded-full bg-secondary bg-opacity-20 flex items-center justify-center mb-6 md:mb-0 md:mr-8">
+                    <i data-feather="shield" class="text-secondary" width="24" height="24"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold text-primary mb-2">Garantia de 7 dias</h3>
+                    <p class="text-gray-600 max-w-2xl font-serif">Se após sua primeira semana você não estiver satisfeito, devolvemos 100% do seu dinheiro sem questionamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeo Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Veja como funciona</h2>
+                <p class="text-xl text-gray-600 font-serif">Assista ao vídeo e entenda nossa abordagem única para ensino de inglês conversacional.</p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl" data-aos="fade-up">
+                <img src="http://static.photos/education/1024x576/1" alt="Vídeo demonstrativo" class="w-full">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-20 h-20 bg-primary bg-opacity-90 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-100 transition">
+                        <i data-feather="play" class="text-white" width="32" height="32"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="clock" class="text-primary" width="20" height="20"></i>
+                    </div>
+                    <h4 class="font-bold text-primary mb-2">Flexibilidade</h4>
+                    <p class="text-gray-600 font-serif">Agende suas aulas conforme sua disponibilidade, mesmo finais de semana.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="book" class="text-primary" width="20" height="20"></i>
+                    </div>
+                    <h4 class="font-bold text-primary mb-2">Conteúdo Exclusivo</h4>
+                    <p class="text-gray-600 font-serif">Materiais desenvolvidos para suas necessidades específicas de aprendizado.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="users" class="text-primary" width="20" height="20"></i>
+                    </div>
+                    <h4 class="font-bold text-primary mb-2">Professores Nativos</h4>
+                    <p class="text-gray-600 font-serif">Equipe especializada com experiência internacional e certificação CELTA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Perguntas frequentes</h2>
+                <p class="text-xl text-gray-600 font-serif">Tire suas dúvidas sobre nosso método e como podemos te ajudar a alcançar a fluência.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="accordion-item" data-aos="fade-up">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Qual é a diferença do método Fluency para escolas tradicionais?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Nosso foco é exclusivo em conversação prática e personalizada. Enquanto escolas tradicionais seguem currículos genéricos, nós desenvolvemos um plano específico para suas necessidades reais, com correção em tempo real e situações práticas do seu dia a dia profissional ou acadêmico.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Quantas aulas por semana são recomendadas?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Recomendamos no mínimo 2 aulas por semana para manutenção do aprendizado e 3-4 aulas para progresso acelerado. Nosso método é baseado em repetição espaçada cientificamente comprovada para fixação do conteúdo.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Posso cancelar quando quiser?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Sim, nossos planos mensais não têm fidelidade. Para pacotes, oferecemos reembolso proporcional das aulas não utilizadas. Nossa política de cancelamento é transparente e sem burocracias.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Como são as aulas para iniciantes absolutos?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Usamos um método visual e contextual que não depende de tradução, mesmo para quem está começando. As primeiras aulas focam em vocabulário essencial e estruturas básicas através de situações reais, com muita repetição e apoio visual.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Vocês preparam para exames como IELTS ou TOEFL?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Sim, temos programas específicos para exames internacionais com simulados completos, técnicas de prova e foco nas habilidades avaliadas. Nossos alunos alcançam em média 1.0 ponto acima da meta inicial no IELTS.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
+                    <button class="accordion-button w-full text-left py-4 font-bold text-lg text-primary" aria-expanded="false">
+                        Qual a qualificação dos professores?
+                    </button>
+                    <div class="accordion-content hidden py-2 text-gray-600 font-serif">
+                        <p>Todos nossos professores são nativos ou têm proficiência equivalente (C2), com certificação CELTA ou TESOL e experiência mínima de 5 anos. Passam por treinamento contínuo em nosso método e são avaliados mensalmente pelos alunos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="py-16 md:py-24 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para transformar seu inglês?</h2>
+                <p class="text-xl mb-8 font-serif opacity-90">Agende sua aula teste gratuita e experimente nosso método sem compromisso.</p>
+                <button class="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition font-bold text-lg">
+                    Agendar Aula Teste
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary font-bold text-xl mr-2">F</div>
+                        <span class="text-xl font-bold">Fluency</span>
+                    </div>
+                    <p class="text-blue-200 mb-4 font-serif">Inglês conversacional personalizado para resultados reais.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white transition">
+                            <i data-feather="facebook" width="20" height="20"></i>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition">
+                            <i data-feather="instagram" width="20" height="20"></i>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition">
+                            <i data-feather="linkedin" width="20" height="20"></i>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition">
+                            <i data-feather="youtube" width="20" height="20"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#metodo" class="text-blue-200 hover:text-white transition font-serif">Nosso Método</a></li>
+                        <li><a href="#planos" class="text-blue-200 hover:text-white transition font-serif">Planos</a></li>
+                        <li><a href="#depoimentos" class="text-blue-200 hover:text-white transition font-serif">Depoimentos</a></li>
+                        <li><a href="#faq" class="text-blue-200 hover:text-white transition font-serif">FAQ</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-white transition font-serif">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contato</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-feather="mail" class="mr-3 text-blue-300" width="18" height="18"></i>
+                            <span class="text-blue-200 font-serif">contato@fluency.com.br</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="phone" class="mr-3 text-blue-300" width="18" height="18"></i>
+                            <span class="text-blue-200 font-serif">(11) 98765-4321</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-3 text-blue-300" width="18" height="18"></i>
+                            <span class="text-blue-200 font-serif">Av. Paulista, 1000<br>São Paulo - SP</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Horário de Atendimento</h3>
+                    <p class="text-blue-200 mb-2 font-serif">Segunda a Sexta: 8h às 20h</p>
+                    <p class="text-blue-200 font-serif">Sábado: 9h às 14h</p>
+                    
+                    <button class="mt-6 bg-secondary text-white px-6 py-2 rounded-full hover:bg-green-700 transition flex items-center">
+                        <i data-feather="message-square" class="mr-2" width="18" height="18"></i>
+                        WhatsApp
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-blue-300 text-sm mb-4 md:mb-0 font-serif">© 2023 Fluency. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-blue-300 hover:text-white text-sm transition font-serif">Termos de Uso</a>
+                    <a href="#" class="text-blue-300 hover:text-white text-sm transition font-serif">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile CTA Fixed -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex justify-between items-center z-40">
+        <div>
+            <p class="text-sm text-gray-600 font-serif">Aula teste gratuita</p>
+            <p class="font-bold text-primary">Agende agora</p>
+        </div>
+        <button class="bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-900 transition">
+            <i data-feather="calendar" class="mr-2" width="16" height="16"></i>
+            Agendar
+        </button>
+    </div>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Plan Tabs
+        const planTabs = document.querySelectorAll('.plan-tab');
+        const planContents = document.querySelectorAll('[data-tab-content]');
+        
+        planTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                planTabs.forEach(t => t.classList.remove('active', 'bg-primary', 'text-white'));
+                planTabs.forEach(t => t.classList.add('text-gray-700'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active', 'bg-primary', 'text-white');
+                tab.classList.remove('text-gray-700');
+                
+                // Hide all plan contents
+                planContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected plan content
+                const tabName = tab.getAttribute('data-tab');
+                document.querySelectorAll(`[data-tab-content="${tabName}"]`).forEach(content => {
+                    content.classList.remove('hidden');
+                });
+            });
+        });
+        
+        // Accordion
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isExpanded);
+                
+                const content = button.nextElementSibling;
+                if (isExpanded) {
+                    content.classList.add('hidden');
+                } else {
+                    content.classList.remove('hidden');
+                }
+            });
+        });
+        
+        // Simple Carousel
+        let currentSlide = 0;
+        const carousel = document.getElementById('testimonial-carousel');
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        
+        function showSlide(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.transform = `translateX(${100 * (i - index)}%)`;
+            });
+        }
+        
+        // Auto-scroll carousel
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            showSlide(currentSlide);
+        }, 5000);
+    </script>
+</body>
+</html>
